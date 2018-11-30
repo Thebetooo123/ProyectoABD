@@ -1,6 +1,6 @@
 <?php
     //Conectamos a la base de datos
-    $conexion = require('php/conexion.php');
+    $conexion = require('../conexion.php');
     //$conexion = mysqli_connect("localhost", "root", "", "ejemplo");
     //Obtenemos los datos del formulario de acceso
     $userPOST = $_POST["userAcceso"]; 

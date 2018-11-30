@@ -72,7 +72,7 @@
             //Llamamos a la función AJAX de jQuery
             $.ajax({
                 //Definimos la URL del archivo al cual vamos a enviar los datos
-                url: "php/acceder.php",
+                url: "recursos/acceder.php",
                 //Definimos el tipo de método de envío
                 type: "POST",
                 //Definimos el tipo de datos que vamos a enviar y recibir
