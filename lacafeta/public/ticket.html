@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pageControl">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Menú</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body style="background-color: blueviolet" ng-controller="ticketDisplayController as ticketArray">
+    
+    <head-default></head-default>
+
+    <div class="content" style="margin-top: 65px">
+    	<div class="container text-center" style="margin-top: 15px">
+    		<h3>Ticket de compra</h3>
+    	</div>
+    </div>
+
+    <div class="content" style= "margin-top: 15px; margin-bottom: 15px">
+        <div class="container text-center" style="margin-top: 15px; padding-top: 15px; padding-bottom: 15px" ng-controller="menuDisplayController as food">
+        	<div class="row" ng-repeat="item in ticketArray.ticketFood">
+        		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        			<img class="img-responsive img-thumbnail" ng-src="{{food.getMenu()[item.nav].platillos[item.prod].img}}">
+        		</div>
+        		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        			<h4>{{food.getMenu()[item.nav].platillos[item.prod].nombre}}</h4>
+        			<p>{{food.getMenu()[item.nav].platillos[item.prod].precio | currency}}</p>
+        		</div>
+        		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <br>
+                <button ng-click="ticketArray.foodDelete(item.nav,item.prod)" class="glyphicon glyphicon-remove">
+                        
+                    </button>
+        		</div>
+                <hr>
+        	</div>
+        </div>
+	</div>
+
+	<div class="content" style= "margin-top: 15px; margin-bottom: 15px">
+		<div class="container text-center" style="margin-top: 15px; padding-top: 15px; padding-bottom: 15px" ng-controller="menuDisplayController as food">
+        	<div class="row" ng-repeat="item in ticketArray.ticketDrink">
+        		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        			<img class="img-responsive" ng-src="{{food.getMenu()[item.nav].platillos[item.prod].types[item.drink].img}}">
+        		</div>
+        		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        			<h4>{{food.getMenu()[item.nav].platillos[item.prod].types[item.drink].nombre}}</h4>
+                    <p>{{food.getMenu()[item.nav].platillos[item.prod].precio | currency}} x {{item.cant}}</p>
+        		</div>
+        		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <br>
+        			<button ng-click="ticketArray.drinkDelete(item.nav,item.prod, item.drink)" class="glyphicon glyphicon-remove">
+                        
+                    </button>
+        		</div>
+        	</div>
+        </div>
+    </div>
+
+    <div class="content" style= "margin-top: 15px; margin-bottom: 15px">
+        <div class="container text-center" style="margin-top: 15px; padding-top: 15px; padding-bottom: 15px" ng-controller="ticketDisplayController as ticketControl">
+            <div class="row text-left">
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                    <p>Precio total a pagar:</p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <p>{{ticketControl.total() | currency}}</p>
+                </div>
+            </div>
+            <div class="text-right">
+                <button ng-click="ticketControl.saveToKitchen()">Enviar a cocina</button>
+            </div>
+        </div>
+    </div>
+
+
+    <foot-default>
+        <footer class="footer-distributed">
+            <div class="footer-left">
+                <p class="footer-links">
+                    <a href="#">Sebastian Barron</a>
+                    ·
+                    <a href="#">Jair Franco</a>
+                    ·
+                    <a href="#">Alberto Lopez</a>
+                    .
+                    <a href="#">Javier Prieto</a>
+                    .
+                    <a href="#">Luis Trejo</a>
+                </p>
+                <p>Eat and Enjoy</p>
+            </div>
+        </footer>
+    </foot-default>
+
+    <!-- jQuery -->
+    <script src="../js/jquery-3.2.1.min.js"></script>
+
+    <!-- angular -->
+    <script src="../js/angular.min.js"></script>
+
+    <!-- storage -->
+    <script src="../js/ngStorage.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <script src="../js/margin-directives.js"></script>
+
+</body>
+</html>

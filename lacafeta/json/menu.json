@@ -1,0 +1,460 @@
+[
+	{
+		"nombre": "Desayunos",
+		"platillos": [
+			{
+				"ID": "0",
+				"nombre": "Huevos al gusto",
+				"precio": "60",
+				"descripcion": "Huevos preparados al gusto",
+				"img": "../public/img/desayunos/1.jpg",
+				"ingredientes": [
+					{
+						"ID": "0",
+						"nombre": "Frijoles"
+					},
+					{
+						"ID": "1",
+						"nombre": "Chilaquiles"
+					},
+					{
+						"ID": "2",
+						"nombre": "Papas fritas"
+					}
+				]
+			},
+			{
+				"ID": "1",
+				"nombre": "Guisado",
+				"precio": "65",
+				"descripcion": "Un gisado a escojer con café",
+				"img": "../public/img/desayunos/2.jpg",
+				"ingredientes": [
+					{
+						"nombre": "AVISO",
+						"cantidades": "El contenido calorico puede variar"
+					},
+					{
+						"ID": "0",
+						"nombre": "Frijoles"
+					},
+					{
+						"ID": "1",
+						"nombre": "Chilaquiles"
+					}
+				]
+			},
+			{
+				"ID": "2",
+				"nombre": "Pan",
+				"precio": "35",
+				"descripcion": "Pan con café",
+				"img": "../public/img/desayunos/3.jpg",
+				"ingredientes": [
+					{
+						"ID": "0",
+						"nombre": "Tostado con mantequilla"
+					},
+					{
+						"ID": "1",
+						"nombre": "Tostado con mermelada"
+					},
+					{
+						"ID": "2",
+						"nombre": "Dulce"
+					},
+					{
+						"ID": "3",
+						"nombre": "Con mantequilla y avena"
+					}
+				]
+			},
+			{
+				"ID": "3",
+				"nombre": "Hot cakes",
+				"precio": "60",
+				"descripcion": "Hot cakes",
+				"img": "../public/img/desayunos/4.jpg",
+				"ingredientes": [
+					{
+						"ID": "0",
+						"nombre": "Fruta"
+					}
+				]
+			},
+			{
+				"ID": "4",
+				"nombre": "Fruta",
+				"precio": "65",
+				"descripcion": "Fruta de temporada",
+				"img": "../public/img/desayunos/5.jpg",
+				"ingredientes": [
+					{
+						"ID": "0",
+						"nombre": "Yogurth"
+					},
+					{
+						"ID": "1",
+						"nombre": "Jugo de naranja"
+					}
+				]
+			}
+		]
+	},
+	{
+		"nombre": "Comidas",
+		"platillos": 
+		[
+			{
+				"ID": "0",
+				"nombre": "Burritos",
+				"precio": "20",
+				"descripcion": "Burritos con el guiso del dia",
+				"img": "../public/img/comidas/1.jpg",
+				"ingredientes": [
+					{
+						"ID": "0",
+						"nombre": "Doble guiso"
+					}
+				]
+			},
+			{
+				"ID": "1",
+				"nombre": "Tortas",
+				"precio": "50",
+				"descripcion": "Tortas",
+				"img": "../public/img/comidas/2.jpg",
+				"ingredientes": [
+					{
+						"ID": "0",
+						"nombre": "Lomo"
+					},
+					{
+						"ID": "1",
+						"nombre": "Deshebrada"
+					},
+					{
+						"ID": "2",
+						"nombre": "Milanesa"
+					},
+					{
+						"ID": "3",
+						"nombre": "Jamon"
+					},
+					{
+						"ID": "4",
+						"nombre": "Del chavo"	
+					}
+				]
+			},
+			{
+				"ID": "2",
+				"nombre": "Hamburguesas",
+				"precio": "150",
+				"descripcion": "Hamburguesa",
+				"img": "../public/img/comidas/3.jpg",
+				"ingredientes": [
+					{
+						"ID": "0",
+						"nombre": "jamon"
+					},
+					{
+						"ID": "1",
+						"nombre": "Queso"
+					}
+				]
+			},
+			{
+				"ID": "3",
+				"nombre": "Hot dog",
+				"precio": "25",
+				"descripcion": "Diversos antojos",
+				"img": "../public/img/comidas/4.jpg",
+				"ingredientes": [
+					{
+						"ID": "0",
+						"nombre": "Hot Dog"
+					}
+				]
+			},
+			{
+				"ID": "4",
+				"nombre": "Pizza",
+				"precio": "17",
+				"descripcion": "Diversos antojos",
+				"img": "../public/img/comidas/5.jpg",
+				"ingredientes": [
+					{
+						"ID": "0",
+						"nombre": "Pizza"
+					}
+				]
+			},
+			{
+				"ID": "5",
+				"nombre": "Enchiladas",
+				"precio": "50",
+				"descripcion": "Enchiladas rojas",
+				"img": "../public/img/comidas/6.jpg",
+				"ingredientes": [
+					{
+						"ID": "0",
+						"nombre": "Con arroz"
+					}
+				]
+			}
+		]
+	},
+	{
+		"nombre": "Bebidas",
+		"platillos": 
+		[
+			{
+				"ID": "0",
+				"nombre": "Refrescos",
+				"precio": "14",
+				"descripcion": "lorem ipsum",
+				"img": "../public/img/bebidas/1.jpg",
+				"types": [
+					{
+						"ID": "0",
+						"nombre": "Coca Cola",
+						"img": "/public/img/bebidas/refrescos/1.jpg"
+					},
+					{
+						"ID": "1",
+						"nombre": "Root Beer",
+						"img": "/public/img/bebidas/refrescos/2.jpg"
+					},
+					{
+						"ID": "2",
+						"nombre": "Soto",
+						"img": "/public/img/bebidas/refrescos/3.jpg"
+					},
+					{
+						"ID": "3",
+						"nombre": "Otros",
+						"img": "/public/img/bebidas/1.jpg"
+					}
+				]
+			},
+			{
+				"ID": "1",
+				"nombre": "Jugos",
+				"precio": "15",
+				"descripcion": "lorem ipsum",
+				"img": "../public/img/bebidas/2.jpg",
+				"types": [
+					{
+						"ID": "0",
+						"nombre": "Del valle",
+						"img": "/public/img/bebidas/jugos/1.jpg"
+
+					},
+					{
+						"ID": "1",
+						"nombre": "Jumex",
+						"img": "/public/img/bebidas/jugos/2.jpg"
+					},
+					{
+						"ID": "2",
+						"nombre": "Bida",
+						"img": "/public/img/bebidas/jugos/3.jpg"
+					}
+				]
+			},
+			{
+				"ID": "2",
+				"nombre": "Jugos naturales",
+				"precio": "28",
+				"descripcion": "lorem ipsum",
+				"img": "../public/img/bebidas/3.jpg",
+				"types": [
+					{
+						"ID": "0",
+						"nombre": "Naranja",
+						"img": "/public/img/bebidas/jugosNat/1.jpg"
+
+					},
+					{
+						"ID": "1",
+						"nombre": "Toronja",
+						"img": "/public/img/bebidas/jugosNat/2.jpg"
+					},
+					{
+						"ID": "2",
+						"nombre": "Zanahoria",
+						"img": "/public/img/bebidas/jugosNat/3.jpg"
+					}
+				]
+			},
+			{
+				"ID": "3",
+				"nombre": "Licuados",
+				"precio": "28",
+				"descripcion": "lorem ipsum",
+				"img": "../public/img/bebidas/4.jpg",
+				"types": [
+					{
+						"ID": "0",
+						"nombre": "Platano",
+						"img": "/public/img/bebidas/licuados/1.jpg"
+
+					},
+					{
+						"ID": "1",
+						"nombre": "Fresa",
+						"img": "/public/img/bebidas/licuados/2.jpg"
+					},
+					{
+						"ID": "2",
+						"nombre": "Papaya",
+						"img": "/public/img/bebidas/licuados/3.jpg"
+					},
+					{
+						"ID": "3",
+						"nombre": "Mango",
+						"img": "/public/img/bebidas/licuados/4.jpg"
+					},
+					{
+						"ID": "4",
+						"nombre": "Chocolate",
+						"img": "/public/img/bebidas/licuados/5.jpg"
+					}
+				]
+			},
+			{
+				"ID": "4",
+				"nombre": "Otros",
+				"precio": "15",
+				"descripcion": "lorem ipsum",
+				"img": "../public/img/bebidas/1.jpg",
+				"types": [
+					{
+						"ID": "0",
+						"nombre": "Café",
+						"img": "/public/img/bebidas/otros/1.jpg"
+
+					},
+					{
+						"ID": "1",
+						"nombre": "Agua embotellada",
+						"img": "/public/img/bebidas/otros/2.jpg"
+					}
+				]
+			}
+		]
+	},
+	{
+		"nombre": "Natural",
+		"platillos": 
+		[
+			{
+				"ID": "0",
+				"nombre": "Sandwich",
+				"precio": "30",
+				"descripcion": "Sandwich",
+				"img": "../public/img/natural/1.jpg",
+				"ingredientes": [
+					{
+						"ID": "0",
+						"nombre": "Atun"
+					},
+					{
+						"ID": "1",
+						"nombre": "Pollo"
+					},
+					{
+						"ID": "2",
+						"nombre": "Jamon"
+					}
+				]
+			},
+			{
+				"ID": "1",
+				"nombre": "Croissant",
+				"precio": "35",
+				"descripcion": "Croissant",
+				"img": "../public/img/natural/2.jpg",
+				"ingredientes": [
+					{
+						"ID": "0",
+						"nombre": "Pollo"
+					},
+					{
+						"ID": "1",
+						"nombre": "Jamon con queso"
+					}
+				]
+			},
+			{
+				"ID": "2",
+				"nombre": "Panini",
+				"precio": "35",
+				"descripcion": "Panini",
+				"img": "../public/img/natural/3.jpg",
+				"ingredientes": [
+					{
+						"ID": "0",
+						"nombre": "jamon"
+					},
+					{
+						"ID": "1",
+						"nombre": "Pollo"
+					}
+				]
+			},
+			{
+				"ID": "3",
+				"nombre": "Baguette",
+				"precio": "25",
+				"descripcion": "Baguette",
+				"img": "../public/img/natural/4.jpg",
+				"ingredientes": [
+					{
+						"ID": "0",
+						"nombre": "jamon"
+					},
+					{
+						"ID": "1",
+						"nombre": "Pollo"
+					}
+				]
+			},
+			{
+				"ID": "4",
+				"nombre": "Ensalada",
+				"precio": "17",
+				"descripcion": "Diversos antojos",
+				"img": "../public/img/natural/5.jpg",
+				"ingredientes": [
+					{
+						"ID": "0",
+						"nombre": "jamon"
+					},
+					{
+						"ID": "1",
+						"nombre": "Pollo"
+					}
+				]
+			},
+			{
+				"ID": "5",
+				"nombre": "Ensalada Dulce",
+				"precio": "50",
+				"descripcion": "Ensalada dulce",
+				"img": "../public/img/natural/6.jpg",
+				"ingredientes": [
+					{
+						"ID": "0",
+						"nombre": "Lechuga con fruta"
+					},
+					{
+						"ID": "1",
+						"nombre": "Coctel de fruta"
+					}
+				]
+			}
+		]
+	}
+]

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pageControl">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Menú</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+
+<body style="background-image: url('../public/img/fondo.jpg'); background-position: center" ng-controller="menuDisplayController as food">
+    
+    <head-default></head-default>
+
+    <nav class="navbar navbar-default" role="navigation" style="margin-top: 50px">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+                    <h4><a href="" ng-click="food.navSelected(0)" style="color: black">Desayunos</a></h4>
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+                    <h4><a href="" ng-click="food.navSelected(1)" style="color: black">Comidas</a></h4>
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+                    <h4><a href="" ng-click="food.navSelected(2)" style="color: black">Bebidas</a></h4>
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+                    <h4><a href="" ng-click="food.navSelected(3)" style="color: black">Natural</a></h4>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </nav>
+
+	<div class="content" style="padding: 1px 15px">
+        <div class="container" style="margin-top: 15px">
+            <div class="row text-center">
+                <ul class="list-inline" ng-repeat="platillo in food.getMenu()[food.navSel].platillos">
+                    <li class="list-item">
+                        <blockquote>
+                            <a href="#modalWindow" data-toggle="modal" ng-click="food.prodSelected(platillo.ID)">
+                                <img ng-src="{{platillo.img}}" class="img-responsive">
+                                <p>{{platillo.nombre}} · {{platillo.precio | currency}}</p>
+                            </a>
+                        </blockquote>
+                    </li>
+                </ul>
+            </div>
+        </div>
+	</div>
+
+    <div class="portfolio-modal modal fade" tabindex="-1" id="modalWindow" role="dialog" aria-hidden="true" style="margin-top: 16px">
+        <div class="container text-right">
+            <button type="button" ng-click="food.close()" class="btn btn-default" data-dismiss="modal">
+            <span class="glyphicon glyphicon-remove"></span></button>
+        </div>
+
+        <div class="modal-content" ng-show="food.navSel == 2">
+            <div class="container" ng-repeat="drink in food.getMenu()[food.navSel].platillos[food.prodSel].types" style="padding-top: 15px">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <img ng-src="{{drink.img}}" class="img-responsive" style="margin-bottom: 15px">
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                        <div class="container">
+                            <h4>{{drink.nombre}}</h4>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                <input type="number" class="form-control" ng-model="cantidad">
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                <button id="myBtn" type="button" class="btn btn-success" ng-click="food.drinkAdd([food.navSel,food.prodSel, drink.ID, cantidad])">
+                                    Añadir
+                                </button>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-content" ng-hide="food.navSel == 2" ng-controller="contentController as content">
+            <div class="container" style="padding-top: 15px">
+                <img ng-src="{{food.getMenu()[food.navSel].platillos[food.prodSel].img}}" class="img-responsive">
+                <h3>{{food.menu[food.navSel].platillos[food.prodSel].nombre}}</h3>
+                <p>{{food.menu[food.navSel].platillos[food.prodSel].descripcion}}</p>
+                <h4>Ingredientes:</h4>
+                <div class="row" ng-repeat="ingrediente in food.getMenu()[food.navSel].platillos[food.prodSel].ingredientes">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <p>{{ingrediente.nombre}}</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <label class="checkbox-inline"><input type="checkbox" ng-model="ing" ng-true-value="true" ng-false-value="false" ng-change="food.updateIng(ing,ingrediente.ID)">Añadir</label>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="margin-bottom: 15px">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right">
+                        <button id="myBtn" type="button" class="btn btn-success" data-dismiss="modal" ng-click="food.foodAdd([food.navSel,food.prodSel])">
+                            Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="margin-bottom: 15px" ng-show="content.show">
+                <div class="container">
+                    <div class="row">
+                        <h4>Contenido</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <foot-default>
+        <footer class="footer-distributed">
+            <div class="footer-left">
+                <p class="footer-links">
+                    <a href="#">Sebastian Barron</a>
+                    ·
+                    <a href="#">Jair Franco</a>
+                    ·
+                    <a href="#">Alberto Lopez</a>
+                    .
+                    <a href="#">Javier Prieto</a>
+                    .
+                    <a href="#">Luis Trejo</a>
+                </p>
+                <p>Eat and Enjoy</p>
+            </div>
+        </footer>
+    </foot-default>
+        
+    <!-- jQuery -->
+    <script src="../js/jquery-3.2.1.min.js"></script>
+
+    <!-- angular -->
+    <script src="../js/angular.min.js"></script>
+
+    <!-- storage -->
+    <script src="../js/ngStorage.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <script src="../js/margin-directives.js"></script>
+</body>
+</html>
