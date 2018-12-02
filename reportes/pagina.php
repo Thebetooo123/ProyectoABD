@@ -8,11 +8,7 @@
     if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
         header('Location: index.php');
 
-
-
-
-
-        echo"<center>";
+    echo"<center>";
     echo "<table border='2'>";
     echo "<tr bgcolor='5599cc'>";
     echo "<th>idcliente</th>";
@@ -28,7 +24,7 @@
     // Bucle while que recorre cada registro y muestra cada campo en la tabla.
     while ($registro = mysqli_fetch_array( $resultado )) {
         echo "<tr>";
-        echo "<td align='center'>" $registro['idCliente'] ."</td>
+        echo "<td align='center'>" . $registro['idCliente'] ."</td>
               <td>" . $registro['nombre'] . "</td>";
               
         echo "<td>".$registro['apellido_paterno']."</td>";
@@ -42,33 +38,18 @@
             echo "</table>"; // Fin de la tabla
             //
 
-
-
-
-
-
-
     } else {
         $estado = $_SESSION['usuario'];
-        $salir = '<a href="php/salir.php" target="_self">Cerrar sesión</a>';
+        $salir = '<a href="recursos/salir.php" target="_self">Cerrar sesión</a>';
         require('recursos/sesiones.php');
     };
 ?>
-
-
-
-
-
-
-
-
-
-<!-- <!doctype html>
+<!doctype html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Bienvenido</title>
-   
+
         <link href="lacafeta/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="lacafeta/css/style.css">
     </head>
@@ -80,8 +61,20 @@
             </div>
         </nav>
         <br><br><br><br><br>
+        <div><p> <h2 style = "color: white">Hola, <?php echo $estado; ?>  <br><br>
+        <?php echo $salir; ?></h2></p><div> 
+        </div>
+        <br><br><br>
         <button onclick="location.href='lacafeta/index.html'"> Tomar orden </button>
-        <br>    
+        <h2 style = "color: white">Crea una cuenta</h2>
+        <div class="formulario-registro">
+        <form method="POST" id="registro" action="" accept-charset="utf-8">
+            <input type="text" name="userRegistro" class="registro" id="userRegistro" placeholder="Usuario" autocomplete="off" maxlength="20">
+            <input type="password" name="passRegistro" class="registro" id="passRegistro" placeholder="Contraseña" autocomplete="off" maxlength="60">
+            <input type="submit" name="registro" class="boton-principal" value="Registrarse">
+        </form>
+        <br><br><br>
+        <!--<br>    
         <table border="2">
             <tr>
                 <th colspan="4" style="color: white"> <center> <h3> Reporte de Ventas </h3> </center> </th>
@@ -129,7 +122,7 @@
                 <th style="color: white"> Nombre del platillo </th>
             </tr>
         </table>        
-        <br>
+        <br>-->
         <input type="button" value="Actualizar" onclick="location.reload()"/>
         <footer class="footer-distributed">
             <div class="footer-left">
@@ -147,13 +140,36 @@
                 <p>Eat and Enjoy</p>
             </div>
         </footer>
+        <script>
+            //Cuando el formulario con ID acceso se envíe...
+            $("#registro").on("submit", function(e){
+                //Evitamos que se envíe por defecto
+                e.preventDefault();
+                //Creamos un FormData con los datos del mismo formulario
+                var formData = new FormData(document.getElementById("registro"));
 
- -->
-
-
-
-        <!--
-            <div><p>Hola, <?php echo $estado; ?><br>
-            <?php echo $salir; ?></p><div> -->
+                //Llamamos a la función AJAX de jQuery
+                $.ajax({
+                    //Definimos la URL del archivo al cual vamos a enviar los datos
+                    url: "recursos/registro.php",
+                    //Definimos el tipo de método de envío
+                    type: "POST",
+                    //Definimos el tipo de datos que vamos a enviar y recibir
+                    dataType: "HTML",
+                    //Definimos la información que vamos a enviar
+                    data: formData,
+                    //Deshabilitamos el caché
+                    cache: false,
+                    //No especificamos el contentType
+                    contentType: false,
+                    //No permitimos que los datos pasen como un objeto
+                    processData: false
+                }).done(function(echo){
+                    //Cuando recibamos respuesta, la mostramos
+                    mensaje.html(echo);
+                    mensaje.slideDown(500);
+                });
+            });
+        </script>
     </body>
 </html>
