@@ -1,6 +1,14 @@
 <?php
     //Conectamos a la base de datos
-    $conexion = require('../conexion.php');
+    //$conexion = require('../conexion.php');
+
+    $hostname_localhost ="localhost";
+	$database_localhost ="ejemplo";
+	$username_localhost ="root";
+	$password_localhost ="";
+
+	$conexion = mysqli_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost);
+
     //$conexion = mysqli_connect("localhost", "root", "", "ejemplo");
     //Obtenemos los datos del formulario de acceso
     $userPOST = $_POST["userAcceso"]; 
@@ -30,31 +38,47 @@
     $userPOSTMinusculas = strtolower($userPOST);
 
     //Escribimos la consulta necesaria
-    $consulta = "SELECT * FROM 'ejemplo001' WHERE usernamelowercase='".$userPOSTMinusculas."'";
+   // $consulta = "SELECT * FROM 'ejemplo001' WHERE usernamelowercase='".$userPOSTMinusculas."'";
+    $consulta = "SELECT * FROM usuario WHERE username='$userPOSTMinusculas'";
 
     //Obtenemos los resultados
-    $resultado = mysqli_query($conexion, $consulta);
+    $resultado = mysqli_query($conexion,$consulta);
     $datos = mysqli_fetch_array($resultado);
 
     //Guardamos los resultados del nombre de usuario en minúsculas
     //y de la contraseña de la base de datos
-    $userBD = $datos['usernamelowercase'];
+    $userBD = $datos['username'];
     $passwordBD = $datos['password'];
 
-    //Comprobamos si los datos son correctos
-    if($userBD == $userPOSTMinusculas and password_verify($passPOST, $passwordBD)){
+    // echo $userBD." ";
+    // echo $passwordBD." ";
 
+    //  echo " ";
+    
+    //  echo $userPOST." ";
+    // echo $passPOST." ";
+
+
+
+
+
+    //Comprobamos si los datos son correctos
+    //if($userBD == $userPOST and password_verify($passPOST, $passwordBD)){
+
+	 if($userBD == $userPOST and $passPOST == $passwordBD){
         session_start();
         $_SESSION['usuario'] = $datos['username'];
         $_SESSION['estado'] = 'Autenticado';
-
         /* Sesión iniciada, si se desea, se puede redireccionar desde el servidor */
+        
 
     //Si los datos no son correctos, o están vacíos, muestra un error
     //Además, hay un script que vacía los campos con la clase "acceso" (formulario)
-    } else if ( $userBD != $userPOSTMinusculas || $userPOST == "" || $passPOST == "" || !password_verify($passPOST, $passwordBD) ) {
-        die ('<script>$(".acceso").val("");</script>
-    Los datos de acceso son incorrectos');
+    }else if( $userBD != $userPOST || $userPOST == "" || $passPOST == "" || !password_verify($passPOST, $passwordBD) ) {
+        die ('<script>
+        		$(".acceso").val("");
+        	</script> 
+        	Los datos de acceso son incorrectos');
     } else {
         die('Error');
     };

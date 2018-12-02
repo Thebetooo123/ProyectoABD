@@ -3,7 +3,7 @@
     $config = parse_ini_file('config.ini'); 
 
     // Conexión con los datos del 'config.ini' 
-    $connection = mysqli_connect('localhost',$config['username'],$config['password'],$config['dbname']); 
+    $connection = mysqli_connect('localhost',$config['username'],$config['password'],$config['dbname']) or die("Not connected."); 
 
     // Si la conexión falla, aparece el error 
     if($connection === false) { 

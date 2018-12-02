@@ -7,25 +7,75 @@
     //Si lo está, definimos el botón de cerrar sesión y la duración de la sesión
     if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
         header('Location: index.php');
+
+
+
+
+
+        echo"<center>";
+    echo "<table border='2'>";
+    echo "<tr bgcolor='5599cc'>";
+    echo "<th>idcliente</th>";
+    echo "<th>Nombre</th>";
+    echo "<th>Apellido paterno</th>";
+    echo "<th>Apellido materno</th>";
+    echo "<th>RFC</th>";
+    echo "<th>Calle</th>";
+    echo "<th>Numero</th>";
+    echo "<th>Codigo postal</th>";
+    echo "</tr>";
+    
+    // Bucle while que recorre cada registro y muestra cada campo en la tabla.
+    while ($registro = mysqli_fetch_array( $resultado )) {
+        echo "<tr>";
+        echo "<td align='center'>" $registro['idCliente'] ."</td>
+              <td>" . $registro['nombre'] . "</td>";
+              
+        echo "<td>".$registro['apellido_paterno']."</td>";
+        echo "<td>".$registro['apellido_materno']."</td>";
+        echo "<td>".$registro['rfc']."</td>";
+        echo "<td>".$registro['calle']."</td>";
+        echo "<td>".$registro['num']."</td>";
+        echo "<td>".$registro['cp']."</td>";
+            echo "</tr>";
+    }
+            echo "</table>"; // Fin de la tabla
+            //
+
+
+
+
+
+
+
     } else {
         $estado = $_SESSION['usuario'];
         $salir = '<a href="php/salir.php" target="_self">Cerrar sesión</a>';
         require('recursos/sesiones.php');
     };
 ?>
-<!doctype html>
+
+
+
+
+
+
+
+
+
+<!-- <!doctype html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Bienvenido</title>
-        <!-- Bootstrap Core CSS -->
+   
         <link href="lacafeta/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="lacafeta/css/style.css">
     </head>
     <body style="background-color: blueviolet; background-position: center; background-size: 100em">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
+                
                 <p class="navbar-brand">La Cafeta</p>
             </div>
         </nav>
@@ -97,6 +147,11 @@
                 <p>Eat and Enjoy</p>
             </div>
         </footer>
+
+ -->
+
+
+
         <!--
             <div><p>Hola, <?php echo $estado; ?><br>
             <?php echo $salir; ?></p><div> -->
