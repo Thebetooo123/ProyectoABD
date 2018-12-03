@@ -10,7 +10,8 @@
     <head>
         <meta charset="utf-8">
         <title>Acceso</title>
-        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <!--<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>-->
+        <script src="lacafeta/js/jquery-3.2.1.min.js"></script>
         <!-- Bootstrap Core CSS -->
         <link href="lacafeta/css/bootstrap.min.css" rel="stylesheet">
 

@@ -3,7 +3,13 @@
     session_start();
 
     //Requerimos los datos de la conexión a la BBDD
-    require('../../conexion.php');
+    //$conexion = require('../../conexion.php');
+    $hostname_localhost ="localhost";
+	$database_localhost ="ejemplo";
+	$username_localhost ="root";
+	$password_localhost ="";
+
+	$conexion = mysqli_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost);
 
     //Des-establecemos todas las sesiones
     unset($_SESSION);
