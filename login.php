@@ -10,8 +10,7 @@
     <head>
         <meta charset="utf-8">
         <title>Acceso</title>
-        <!--<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>-->
-        <script src="lacafeta/js/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
         <!-- Bootstrap Core CSS -->
         <link href="lacafeta/css/bootstrap.min.css" rel="stylesheet">
 
@@ -43,16 +42,11 @@
         <footer class="footer-distributed">
             <div class="footer-left">
                 <p class="footer-links">
-                    <a href="#">Sebastian Barron</a>
-                    ·
                     <a href="#">Jair Franco</a>
                     ·
                     <a href="#">Alberto Lopez</a>
                     .
-                    <a href="#">Javier Prieto</a>
-                    .
-                    <a href="#">Luis Trejo</a>
-                </p>
+                    <a href="#">Diego Rodriguez</a>
                 <p>Eat and Enjoy</p>
             </div>
         </footer>

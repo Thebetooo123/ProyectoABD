@@ -3,7 +3,7 @@
     //$conexion = require('../conexion.php');
 
     $hostname_localhost ="localhost";
-	$database_localhost ="ejemplo";
+	$database_localhost ="database";
 	$username_localhost ="root";
 	$password_localhost ="";
 

@@ -2,7 +2,7 @@
     //Conectamos a la base de datos
     //$conexion = require('../conexion.php');
     $hostname_localhost ="localhost";
-	$database_localhost ="ejemplo";
+	$database_localhost ="database";
 	$username_localhost ="root";
 	$password_localhost ="";
 
@@ -21,8 +21,8 @@
     //Definimos la cantidad máxima de caracteres
     //Esta comprobación se tiene en cuenta por si se llegase a modificar el "maxlength" del formulario
     //Los valores deben coincidir con el tamaño máximo de la fila de la base de datos
-    $maxCaracteresUsername = "20";
-    $maxCaracteresPassword = "60";
+    $maxCaracteresUsername = "50";
+    $maxCaracteresPassword = "45";
 
     //Si los input son de mayor tamaño, se "muere" el resto del código y muestra la respuesta correspondiente
     if(strlen($userPOST) > $maxCaracteresUsername) {
@@ -72,8 +72,8 @@
         $passwordConSalt = crypt($passPOST, $salt);
 
         //Armamos la consulta para introducir los datos
-        $consulta = "INSERT INTO `ejemplo` (username, password) 
-        VALUES ('$userPOST' , '$passwordConSalt')";
+        $consulta = "INSERT INTO 'ejemplo' (username, password) 
+        VALUES ('$userPOST', '$passwordConSalt')";
         
         //Si los datos se introducen correctamente, mostramos los datos
         //Sino, mostramos un mensaje de error
